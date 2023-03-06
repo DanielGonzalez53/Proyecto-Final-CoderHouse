@@ -28,10 +28,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'AcercaDeMi' %}">Acerca De Mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -54,8 +55,8 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Servicios</h2>
+                    <h3 class="section-subheading text-muted">...</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -89,8 +90,8 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Nuestros productos</h2>
+                    <h3 class="section-subheading text-muted">Conoce mas sobre nosotros...</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -103,8 +104,8 @@
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/1.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">Tecnologia</div>
+                                <div class="portfolio-caption-subheading text-muted">Computadores, Celulares, Videojuegos y Mas...</div>
                             </div>
                         </div>
                     </div>
@@ -118,8 +119,8 @@
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/2.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading">Deportes</div>
+                                <div class="portfolio-caption-subheading text-muted">Futbol, Baloncesto, Running, Gimnasia y Mas...</div>
                             </div>
                         </div>
                     </div>
@@ -133,8 +134,8 @@
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/3.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading">Vehiculos</div>
+                                <div class="portfolio-caption-subheading text-muted">Carros, Motos, Respuestos, Lujos y Mas...</div>
                             </div>
                         </div>
                     </div>
@@ -148,8 +149,8 @@
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/4.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                                <div class="portfolio-caption-heading">SuperMercado</div>
+                                <div class="portfolio-caption-subheading text-muted">Carnes, Frutas, Verduras y Mas...</div>
                             </div>
                         </div>
                     </div>
@@ -160,11 +161,11 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/5.jpg' %}" alt="..." />
+                                <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/Img5.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                                <div class="portfolio-caption-heading">Hogar</div>
+                                <div class="portfolio-caption-subheading text-muted">Todo lo necesario para vivir en comodidad...</div>
                             </div>
                         </div>
                     </div>
@@ -178,8 +179,8 @@
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/6.jpg' %}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                                <div class="portfolio-caption-heading">Ropa y Estetica</div>
+                                <div class="portfolio-caption-subheading text-muted">Camisas, Pantalones, Perfumeria, Maquillaje, y Mas...</div>
                             </div>
                         </div>
                     </div>
@@ -255,18 +256,7 @@
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
+
             </div>
         </footer>
         <!-- Portfolio Modals-->

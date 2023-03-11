@@ -1,6 +1,18 @@
 from django import forms
-from .models import Vendedor, Cliente, Producto
-#from django.contrib.auth.models import User
+from .models import Vendedor
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField(label='Correo Electronico')
+    password1 =forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+    password2 =forms.CharField(label='Confirma contraseña', widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+        help_texts = {k:'' for k in fields}
+
 
 class VendedorFormulario(forms.ModelForm):
     class Meta:
@@ -9,10 +21,10 @@ class VendedorFormulario(forms.ModelForm):
 
 class ClienteFormulario(forms.ModelForm):
     class Meta:
-        model = Cliente
+        model = Vendedor
         fields = '__all__'
 
 class ProductoFormulario(forms.ModelForm):
     class Meta:
-        model = Producto
+        model = Vendedor
         fields = '__all__'

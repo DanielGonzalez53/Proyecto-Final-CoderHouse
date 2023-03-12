@@ -1,15 +1,17 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Productos, Categoria
+from .models import Tecnologia
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, TecnologiaFormulario
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+from django.urls import reverse_lazy
 
 @login_required
 def inicio(request):
-    categorias=Categoria.objects.filter(activo=True)
-    productos=Productos.objects.filter(activo=True)
-    return render(request, 'MiApp/inicio.html', {'productos':productos,'categorias':categorias})
+    return render(request, 'MiApp/inicio.html')
 
 def register(request):
     if request.method == 'POST':
@@ -18,37 +20,30 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             form.save()
-            return render(request, 'MiApp/inicio.html', {'mensaje': 'Usuario Creado '})
-
+            return render(request, 'registration/login.html', {'mensaje': 'Usuario Creado '})
     else:
         form = UserRegisterForm()
 
     return render(request, 'MiApp/registro.html', {'form':form})
-
-'''def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-        else:
-            form = UserCreationForm()
-    return render(request, 'MiApp/register.html', {'form':form})'''
-
-def buscar_categorias(request, slug):
-    cat = Categoria.objects.get(slug=slug)
-    categorias = Categoria.objects.filter(activo=True)
-    productos = Productos.objects.filter(activo=True, categoria=cat)
-    return render(request, 'MiApp/list.html', {'productos':productos,'categorias':categorias})
-
-def search(request):
-    template_name = 'MiApp/list.html'
-    q = request.GET['q']
-    productos = Productos.objects.filter(activo=True,nombre__icontains=q)
-    categorias = Categoria.objects.filter(activo=True)
-    return render(request, template_name, {'productos':productos,'categorias':categorias})
 
 def about(request):
     return render(request, 'MiApp/about.html')
 
 def quieroVender(request):
     return render(request, 'MiApp/quieroVender.html')
+
+class TecnologiaCrear(CreateView):
+    model = Tecnologia
+    form_class = TecnologiaFormulario
+    success_url = reverse_lazy('Inicio')
+    template_name = 'MiApp/tecnologiaCrear.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TecnologiaCrear, self).form_valid(form)
+    
+class TecnologiaLista(ListView):
+    model = Tecnologia
+    context_object_name = 'tecnologias'
+    queryset = Tecnologia.objects.all()
+    template_name = 'MiApp/tecnologiaLista.html'

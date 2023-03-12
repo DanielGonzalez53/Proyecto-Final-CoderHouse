@@ -8,6 +8,8 @@ urlpatterns = [
     path('about', views.about, name='About'),
     path('quieroVender', views.quieroVender, name='QuieroVender'),
     path('register', views.register, name='Register'),
-    path ('login', LoginView.as_view(template_name='MiApp/login.html'), name='Login'),
-    path ('logout', LogoutView.as_view(template_name='MiApp/logout.html'), name='Logout'),
+    path('login', LoginView.as_view(template_name='MiApp/login.html'), name='Login'),
+    path('logout', LogoutView.as_view(template_name='MiApp/logout.html'), name='Logout'),
+    path('tecnologiaCrear', views.TecnologiaCrear.as_view(), name='TecnologiaCrear'),
+    path('tecnologiaLista', views.TecnologiaLista.as_view(), name='Tecnologia'),
 ]

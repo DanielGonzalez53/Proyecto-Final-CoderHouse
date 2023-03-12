@@ -1,41 +1,73 @@
 from django.db import models
-from autoslug import AutoSlugField
 
-class Categoria(models.Model):
+class Tecnologia(models.Model):
     nombre = models.CharField(max_length=40)
-    slug = AutoSlugField(populate_from='nombre')
-    activo = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f'Nombre: {self.nombre}'
-    
-    class Meta:
-         verbose_name_plural='Categoria'
-
-class Productos(models.Model):
-    codigo = models.CharField(max_length=100,primary_key=True)
-    nombre = models.CharField(max_length=40)
-    fechaDePublicacion = models.DateField()
-    slug = AutoSlugField(populate_from='nombre')
-    imagen = models.CharField(max_length=250)
     marca = models.CharField(max_length=40)
-    descripcion = models.TextField(blank=True,null=True)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
     precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
-    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
-    destacado = models.BooleanField(default=True)
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'Nombre: {self.nombre} - Precio: {self.precio} - Fecha de Publicacion: {self.fechaDePublicacion}'
-    
-    class Meta:
-        verbose_name_plural='Producto'
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'
 
-class Vendedor(models.Model):
+class Deportes(models.Model):
     nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    fechaDeNacimiento = models.DateField()
-    correo = models.EmailField()
+    marca = models.CharField(max_length=40)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
+    activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'Nombre: {self.nombre} - Apellido: {self.apellido} - Fecha de Nacimiento: {self.fechaDeNacimiento} - Correo Electronico: {self.correo}'
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'
+
+class Vehiculos(models.Model):
+    nombre = models.CharField(max_length=40)
+    marca = models.CharField(max_length=40)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'
+
+class Supermercado(models.Model):
+    nombre = models.CharField(max_length=40)
+    marca = models.CharField(max_length=40)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
+    fecha_vencimiento = models.DateField()
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
+    activo = models.BooleanField(default=True)
+    def __str__(self):
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'
+
+class Hogar(models.Model):
+    nombre = models.CharField(max_length=40)
+    marca = models.CharField(max_length=40)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'
+
+class RopaEstetica(models.Model):
+    nombre = models.CharField(max_length=40)
+    marca = models.CharField(max_length=40)
+    tipo = models.CharField(max_length=40)
+    imagen = models.ImageField()
+    descripcion = models.TextField(max_length=200)
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Nombre: {self.nombre} - Tipo: {self.tipo} - {self.precio}'

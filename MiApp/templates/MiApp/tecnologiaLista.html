@@ -1,0 +1,29 @@
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h1>Tecnologia</h1>
+</div>
+
+<br>
+<div class="container text-center">
+    <div class="row">
+            {% for tecnologia in object_list %}
+            <div class="col-sm-6 align-items-center">
+                <h4>{{tecnologia.titulo}}</h4>
+                <div class="card-body">
+                <a href="{% url 'tecnologia' tecnologia.id %}"><img src="{{tecnologia.imagenNoticias.url}}" class="" width="300px"></a>
+                    <div class="card-body">
+                    <a href="{% url 'tecnologia' tecnologia.id %}"><i class="bi bi-eye">&ensp;&ensp;</i></a>
+                    {% if user.id == politica.usuario.id %}
+                    <a href="{% url 'editar_tecnologia' tecnologia.id %}"><i class="bi bi-pencil-fill">&ensp;&ensp;</i></a>
+                    <a href="{% url 'borrar_tecnologia' tecnologia.id %}"><i class="bi bi-trash text-danger"></i></a>
+                    <br>
+                    <br>
+                    {% endif %} 
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>

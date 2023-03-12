@@ -1,5 +1,5 @@
 from django import forms
-from .models import Vendedor
+from .models import Tecnologia, Deportes, Vehiculos, Supermercado, Hogar, RopaEstetica
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -14,17 +14,7 @@ class UserRegisterForm(UserCreationForm):
         help_texts = {k:'' for k in fields}
 
 
-class VendedorFormulario(forms.ModelForm):
+class TecnologiaFormulario(forms.ModelForm):
     class Meta:
-        model = Vendedor
-        fields = '__all__'
-
-class ClienteFormulario(forms.ModelForm):
-    class Meta:
-        model = Vendedor
-        fields = '__all__'
-
-class ProductoFormulario(forms.ModelForm):
-    class Meta:
-        model = Vendedor
+        model = Tecnologia
         fields = '__all__'

@@ -28,7 +28,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}"><button type="submit" id="submit" class="btn btn-primary btn-xs text-uppercase" data-bs-dismiss="modal" type="button">Iniciar Sesion</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'QuieroVender' %}">Quiero vender</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">Acerca de Mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}"><button type="submit" id="submit" class="btn btn-primary btn-xs text-uppercase" data-bs-dismiss="modal" type="button">Cerrar sesion</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -49,11 +54,31 @@
                         <div class="col-lg-8">
                             <div class="modal-body">
                                 <form class="form" method="POST">
+                                    {% csrf_token %}
+                                    <br>
+                                    <br>
+                                    <div class="container">
+                                        <br>
+                                        <br>
+                                        <h1 class="text-center">Agrega tu dispositivo</h1>
+                                        <br>
+                                    <div class="form-group">
+                                    <form style=" width: 50vw; margin-left : 14vw;" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                        {{ form.as_p }}
+                                        <div class="container text-center">
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                    </div>
 
-                                    {% csrf_token%}
-                                    {{ form.as_p}}
-                                    
-                                    <button type="submit" id="submit" class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">Registrarse</button>
+                                    <br>
+                                    <br>
+
+                                    <script>
+                                        var name = "{{ user.id }}";
+                                        document.getElementById("usuario_id").value = name;
+                                    </script>
                                 </form>
                             </div>
                         </div>

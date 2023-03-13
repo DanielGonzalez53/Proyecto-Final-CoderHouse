@@ -97,15 +97,14 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/1.jpg' %}" alt="..." />
-                            </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Tecnologia</div>
                                 <div class="portfolio-caption-subheading text-muted">Computadores, Celulares, Videojuegos y Mas...</div>
+                                <br>
+                                <a href="{% url 'tecnologias' %}"><button type="submit" id="submit" class="btn btn-primary btn-l text-uppercase" data-bs-dismiss="modal" type="button">
+                                    VAMOS
+                                </button></a>
                             </div>
                         </div>
                     </div>

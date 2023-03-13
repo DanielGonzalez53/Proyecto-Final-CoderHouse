@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from .models import Producto
 from .forms import UserRegisterForm, ProductoForm
 from django.views.generic.detail import DetailView
@@ -28,25 +27,6 @@ def register(request):
 def about(request):
     return render(request, 'MiApp/about.html')
 
-def quieroVender(request):
-    return render(request, 'MiApp/quieroVender.html')
-
-'''
-def quieroVender(request):
-    data = {
-        'miProducto': ProductoForm()
-    }
-    if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            data['mensaje'] = 'Entregable registrado con exito.'
-            return render(request, "MiApp/inicio.html")
-        else:
-            data['miProducto'] = formulario
-    return render(request, 'MiApp/quieroVender.html', data)
-'''
-
 class ProductoList(ListView):
     model = Producto
     template_name = 'MiApp/producto_list.html'
@@ -54,19 +34,7 @@ class ProductoList(ListView):
 class ProductoDetalle(DetailView):
     model = Producto
     template_name = 'MiApp/producto_detalle.html'
-
-'''
-class ProductoCreacion(CreateView, SuccessMessageMixin):
-    model = Producto
-    form = ProductoForm
-    fields = ['tipo', 'nombre', 'marca', 'imagen', 'descripcion', 'precio', 'activo']
-    template_name = 'MiApp/quieroVender.html'
-    success_message = 'Producto creado exitosamente!'
-
-    def get_success_url(self):
-        return reverse('Inicio')
-'''
-        
+   
 class ProductoCreacion(CreateView):
     model = Producto
     form_class = ProductoForm
@@ -79,9 +47,34 @@ class ProductoCreacion(CreateView):
 
 class ProductoUpdate(UpdateView):
     model = Producto
-    success_url = 'MiApp/quieroVender/list'
+    success_url = reverse_lazy('List')
     fields = '__all__'
 
 class ProductoDelete(DeleteView):
     model = Producto
-    success_url = 'MiApp/quieroVender/list'
+    success_url = reverse_lazy('List')
+
+#TECNOLOGIA
+
+class TecnologiaLista(ListView):
+    context_object_name = 'tecnologias'
+    queryset = Producto.objects.filter(tipo__startswith='tecnologia')
+    template_name = 'MiApp/tecnologiaLista.html'
+
+class TecnologiaDetalle(DetailView):
+    model = Producto
+    context_object_name = 'tecnologia'
+    template_name = 'MiApp/tecnologiaDetalle.html'
+
+class TecnologiaUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('tecnologias')
+    context_object_name = 'tecnologia'
+    template_name = 'MiApp/tecnologiaEdicion.html'
+
+class TecnologiaDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('tecnologias')
+    context_object_name = 'tecnologia'
+    template_name = 'MiApp/tecnologiaBorrado.html'

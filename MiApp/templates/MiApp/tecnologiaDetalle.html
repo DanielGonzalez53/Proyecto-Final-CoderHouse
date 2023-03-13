@@ -1,0 +1,25 @@
+{% extends 'MiApp/padre.html' %}
+    {% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{tecnologia.nombre}}</h4></p>
+
+{% if tecnologia.imagen %}
+    <p><img src="{{tecnologia.imagen.url}}" alt=""></p>
+{% endif %}
+<p><h4>Marca:</h4></p>
+<p>{{tecnologia.marca}}</p>
+<p><h4>Descripcion:</h4></p>
+<p>{{tecnologia.descripcion}}</p>
+<p><h4>Precio:</h4></p>
+<p>{{tecnologia.precio}}</p>
+
+</div>
+<br>
+<br>
+{% endblock %}

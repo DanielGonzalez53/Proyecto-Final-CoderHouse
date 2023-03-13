@@ -24,6 +24,7 @@ def register(request):
 
     return render(request, 'MiApp/registro.html', {'form':form})
 
+@login_required
 def about(request):
     return render(request, 'MiApp/about.html')
 
@@ -78,3 +79,54 @@ class TecnologiaDelete(DeleteView):
     success_url = reverse_lazy('tecnologias')
     context_object_name = 'tecnologia'
     template_name = 'MiApp/tecnologiaBorrado.html'
+
+#DEPORTES
+
+class DeporteLista(ListView):
+    context_object_name = 'deportes'
+    queryset = Producto.objects.filter(tipo__startswith='deporte')
+    template_name = 'MiApp/deporteLista.html'
+
+class DeporteDetalle(DetailView):
+    model = Producto
+    context_object_name = 'deporte'
+    template_name = 'MiApp/deporteDetalle.html'
+
+class DeporteUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('deportes')
+    context_object_name = 'deporte'
+    template_name = 'MiApp/deporteEdicion.html'
+
+class DeporteDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('deportes')
+    context_object_name = 'deporte'
+    template_name = 'MiApp/deporteBorrado.html'
+
+#VEHICULOS
+
+class VehiculoLista(ListView):
+    context_object_name = 'vehiculos'
+    queryset = Producto.objects.filter(tipo__startswith='vehiculo')
+    template_name = 'MiApp/vehiculoLista.html'
+
+class VehiculoDetalle(DetailView):
+    model = Producto
+    context_object_name = 'vehiculo'
+    template_name = 'MiApp/vehiculoDetalle.html'
+
+class VehiculoUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('vehiculos')
+    context_object_name = 'vehiculo'
+    template_name = 'MiApp/vehiculoEdicion.html'
+
+class VehiculoDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('vehiculos')
+    context_object_name = 'vehiculo'
+    template_name = 'MiApp/vehiculoBorrado.html'
+

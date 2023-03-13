@@ -111,30 +111,28 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/2.jpg' %}" alt="..." />
-                            </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Deportes</div>
                                 <div class="portfolio-caption-subheading text-muted">Futbol, Baloncesto, Running, Gimnasia y Mas...</div>
+                                <br>
+                                <a href="{% url 'deportes' %}"><button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">
+                                    VAMOS
+                                </button></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
                                 <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/3.jpg' %}" alt="..." />
-                            </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Vehiculos</div>
                                 <div class="portfolio-caption-subheading text-muted">Carros, Motos, Respuestos, Lujos y Mas...</div>
+                                <br>
+                                <a href="{% url 'vehiculos' %}"><button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">
+                                    VAMOS
+                                </button></a>
                             </div>
                         </div>
                     </div>

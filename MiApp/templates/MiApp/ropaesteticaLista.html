@@ -1,0 +1,38 @@
+{% extends 'MiApp/padre.html' %}
+    {% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h1>ROPA & ESTETICA</h1>
+</div>
+
+<br>
+<div class="container text-center">
+    <div class="row">
+            {% for ropaestetica in ropaesteticas %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <a href="{% url 'ropaestetica' ropaestetica.id %}"><p><img src="{{ropaestetica.imagen.url}}" width="200" height="200" alt=""></p></a>
+			<h4>{{ropaestetica.nombre}}</h4>
+			<h3>${{ropaestetica.precio}}</h3>
+                    <div class="card-body">
+                    <a href="{% url 'ropaestetica' ropaestetica.id %}"><button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">
+                        VER
+                    </button></a><i class="bi bi-eye">&ensp;&ensp;</i></a>
+                    <a href="{% url 'editar_ropaestetica' ropaestetica.id %}">
+                    <button type="submit" id="submit" class="btn btn-primary btn-lg text-uppercase" data-bs-dismiss="modal" type="button">
+                        EDITAR
+                    </button></a><i class="bi bi-pencil-fill">&ensp;&ensp;</i></a>
+                    <br>
+                    <br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

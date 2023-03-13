@@ -4,9 +4,9 @@ productoOpcion = [
     ['Tecnologia', 'Tecnologia'],
     ['Deportes', 'Deportes'],
     ['Vehiculos', 'Vehiculos'],
-    ['Super Mercado', 'Super Mercardo'],
+    ['SuperMercado', 'SuperMercardo'],
     ['Hogar', 'Hogar'],
-    ['Ropa & Estetica', 'Ropa & Estetica']
+    ['RopaEstetica', 'RopaEstetica']
 ]
 
 class Producto(models.Model):

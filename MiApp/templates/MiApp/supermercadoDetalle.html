@@ -1,0 +1,33 @@
+{% extends 'MiApp/padre.html' %}
+    {% load static %}
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+
+<div class="container text-center">
+
+    <p><h4>{{supermercado.nombre}}</h4></p>
+    <br>
+    <br>
+    <br>
+    {% if supermercado.imagen %}
+        <p><img src="{{supermercado.imagen.url}}" width="500" height="500" alt=""></p>
+    {% endif %}
+    <br>
+    <br>
+    <p><h4>Marca:</h4></p>
+    <p>{{supermercado.marca}}</p>
+    <p><h4>Descripcion:</h4></p>
+    <p>{{supermercado.descripcion}}</p>
+    <p><h4>Precio:</h4></p>
+    <p><h3>${{supermercado.precio}}</h3></p>
+    <br>
+    <br>
+    <a href="{% url 'eliminar_supermercado' supermercado.id %}"><button type="submit" id="submit" class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+        COMPRAR
+    </button></a><i class="bi bi-trash text-danger"></i></a>
+</div>
+<br>
+<br>
+{% endblock %}

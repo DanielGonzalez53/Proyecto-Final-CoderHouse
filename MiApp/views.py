@@ -130,3 +130,77 @@ class VehiculoDelete(DeleteView):
     context_object_name = 'vehiculo'
     template_name = 'MiApp/vehiculoBorrado.html'
 
+#SUPERMERCADO
+
+class SupermercadoLista(ListView):
+    context_object_name = 'supermercados'
+    queryset = Producto.objects.filter(tipo__startswith='supermercado')
+    template_name = 'MiApp/supermercadoLista.html'
+
+class SupermercadoDetalle(DetailView):
+    model = Producto
+    context_object_name = 'supermercado'
+    template_name = 'MiApp/supermercadoDetalle.html'
+
+class SupermercadoUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('supermercados')
+    context_object_name = 'supermercado'
+    template_name = 'MiApp/supermercadoEdicion.html'
+
+class SupermercadoDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('supermercados')
+    context_object_name = 'supermercado'
+    template_name = 'MiApp/supermercadoBorrado.html'
+
+#HOGAR
+
+class HogarLista(ListView):
+    context_object_name = 'hogars'
+    queryset = Producto.objects.filter(tipo__startswith='hogar')
+    template_name = 'MiApp/hogarLista.html'
+
+class HogarDetalle(DetailView):
+    model = Producto
+    context_object_name = 'hogar'
+    template_name = 'MiApp/hogarDetalle.html'
+
+class HogarUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('hogars')
+    context_object_name = 'hogar'
+    template_name = 'MiApp/hogarEdicion.html'
+
+class HogarDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('hogars')
+    context_object_name = 'hogar'
+    template_name = 'MiApp/hogarBorrado.html'
+
+#ROPA Y ESTATICA
+
+class RopaEsteticaLista(ListView):
+    context_object_name = 'ropaesteticas'
+    queryset = Producto.objects.filter(tipo__startswith='ropaestetica')
+    template_name = 'MiApp/ropaesteticaLista.html'
+
+class RopaEsteticaDetalle(DetailView):
+    model = Producto
+    context_object_name = 'ropaestetica'
+    template_name = 'MiApp/ropaesteticaDetalle.html'
+
+class RopaEsteticaUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy('ropaesteticas')
+    context_object_name = 'ropaestetica'
+    template_name = 'MiApp/ropaesteticaEdicion.html'
+
+class RopaEsteticaDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('ropaesteticas')
+    context_object_name = 'ropaestetica'
+    template_name = 'MiApp/ropaesteticaBorrado.html'

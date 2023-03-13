@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .models import Producto
-from django.contrib import messages
-from django.urls import reverse
-from django.contrib.messages.views import SuccessMessageMixin
 from .forms import UserRegisterForm, ProductoForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -34,6 +31,7 @@ def about(request):
 def quieroVender(request):
     return render(request, 'MiApp/quieroVender.html')
 
+'''
 def quieroVender(request):
     data = {
         'miProducto': ProductoForm()
@@ -47,6 +45,7 @@ def quieroVender(request):
         else:
             data['miProducto'] = formulario
     return render(request, 'MiApp/quieroVender.html', data)
+'''
 
 class ProductoList(ListView):
     model = Producto

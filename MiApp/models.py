@@ -15,7 +15,7 @@ class Producto(models.Model):
     marca = models.CharField(max_length=40)
     imagen = models.ImageField(null=False, blank=False, upload_to="imagenes/")
     descripcion = models.TextField(max_length=200)
-    precio = models.DecimalField(max_digits=15,decimal_places=6,default=0.0)
+    precio = models.DecimalField(max_digits=15,decimal_places=3,default=0.0)
     activo = models.BooleanField(default=True)
 
     def __str__(self):

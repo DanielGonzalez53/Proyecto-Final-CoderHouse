@@ -5,20 +5,28 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container text-center">
 
-<p><h4>{{tecnologia.nombre}}</h4></p>
-
-{% if tecnologia.imagen %}
-    <p><img src="{{tecnologia.imagen.url}}" alt=""></p>
-{% endif %}
-<p><h4>Marca:</h4></p>
-<p>{{tecnologia.marca}}</p>
-<p><h4>Descripcion:</h4></p>
-<p>{{tecnologia.descripcion}}</p>
-<p><h4>Precio:</h4></p>
-<p>{{tecnologia.precio}}</p>
-
+    <p><h4>{{tecnologia.nombre}}</h4></p>
+    <br>
+    <br>
+    <br>
+    {% if tecnologia.imagen %}
+        <p><img src="{{tecnologia.imagen.url}}" width="500" height="500" alt=""></p>
+    {% endif %}
+    <br>
+    <br>
+    <p><h4>Marca:</h4></p>
+    <p>{{tecnologia.marca}}</p>
+    <p><h4>Descripcion:</h4></p>
+    <p>{{tecnologia.descripcion}}</p>
+    <p><h4>Precio:</h4></p>
+    <p><h3>${{tecnologia.precio}}</h3></p>
+    <br>
+    <br>
+    <a href="{% url 'eliminar_tecnologia' tecnologia.id %}"><button type="submit" id="submit" class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+        COMPRAR
+    </button></a><i class="bi bi-trash text-danger"></i></a>
 </div>
 <br>
 <br>

@@ -31,7 +31,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'TecnologiaCrear' %}">Quiero Vender</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'QuieroVender' %}">Quiero Vender</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">Acerca de Mi</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}"><button type="submit" id="submit" class="btn btn-primary btn-xs text-uppercase" data-bs-dismiss="modal" type="button">Cerrar sesion</button></a></li>
                     </ul>
@@ -139,7 +139,52 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/4.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Super Mercado</div>
+                                <div class="portfolio-caption-subheading text-muted">Viveres, Frutas, Verduras, Empaquetados y Mas...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/Img5.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Hogar</div>
+                                <div class="portfolio-caption-subheading text-muted">Muebles, Camas, Accesorios y Mas...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{% static 'MiApp/assets/img/portfolio/6.jpg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Ropa & Estetica</div>
+                                <div class="portfolio-caption-subheading text-muted">Ropa, Perfumeria, Joyeria y Mas...</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Tecnologia, Deportes, Vehiculos, Supermercado, Hogar, RopaEstetica
+from .models import Producto
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -13,8 +13,7 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
         help_texts = {k:'' for k in fields}
 
-
-class TecnologiaFormulario(forms.ModelForm):
+class ProductoForm(forms.ModelForm):
     class Meta:
-        model = Tecnologia
-        fields = '__all__'
+        model = Producto
+        fields = ['tipo', 'nombre', 'marca', 'imagen', 'descripcion', 'precio', 'activo']

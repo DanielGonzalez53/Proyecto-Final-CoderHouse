@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Tecnologia
+from .models import Producto
 from django.contrib import messages
-from .forms import UserRegisterForm, TecnologiaFormulario
+from django.urls import reverse
+from django.contrib.messages.views import SuccessMessageMixin
+from .forms import UserRegisterForm, ProductoForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -32,18 +34,55 @@ def about(request):
 def quieroVender(request):
     return render(request, 'MiApp/quieroVender.html')
 
-class TecnologiaCrear(CreateView):
-    model = Tecnologia
-    form_class = TecnologiaFormulario
+def quieroVender(request):
+    data = {
+        'miProducto': ProductoForm()
+    }
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = 'Entregable registrado con exito.'
+            return render(request, "MiApp/inicio.html")
+        else:
+            data['miProducto'] = formulario
+    return render(request, 'MiApp/quieroVender.html', data)
+
+class ProductoList(ListView):
+    model = Producto
+    template_name = 'MiApp/producto_list.html'
+
+class ProductoDetalle(DetailView):
+    model = Producto
+    template_name = 'MiApp/producto_detalle.html'
+
+'''
+class ProductoCreacion(CreateView, SuccessMessageMixin):
+    model = Producto
+    form = ProductoForm
+    fields = ['tipo', 'nombre', 'marca', 'imagen', 'descripcion', 'precio', 'activo']
+    template_name = 'MiApp/quieroVender.html'
+    success_message = 'Producto creado exitosamente!'
+
+    def get_success_url(self):
+        return reverse('Inicio')
+'''
+        
+class ProductoCreacion(CreateView):
+    model = Producto
+    form_class = ProductoForm
     success_url = reverse_lazy('Inicio')
-    template_name = 'MiApp/tecnologiaCrear.html'
+    template_name = 'MiApp/quieroVender.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(TecnologiaCrear, self).form_valid(form)
-    
-class TecnologiaLista(ListView):
-    model = Tecnologia
-    context_object_name = 'tecnologias'
-    queryset = Tecnologia.objects.all()
-    template_name = 'MiApp/tecnologiaLista.html'
+        return super(ProductoCreacion, self).form_valid(form)
+
+class ProductoUpdate(UpdateView):
+    model = Producto
+    success_url = 'MiApp/quieroVender/list'
+    fields = '__all__'
+
+class ProductoDelete(DeleteView):
+    model = Producto
+    success_url = 'MiApp/quieroVender/list'
